@@ -49,6 +49,9 @@
 				{ name: 'TypeScript', level: 'advanced' },
 				{ name: 'Tailwind CSS', level: 'intermediate' },
                 { name: 'Daisy UI', level: 'intermediate' },
+                { name: 'NextJS', level: 'familiar' },
+                { name: 'NuxtJS', level: 'intermediate' },
+                { name: 'Express', level: 'intermediate' },
                 { name: 'Bootstrap', level: 'advanced' },
 				{ name: 'React', level: 'familiar' },
 				{ name: 'Angular', level: 'familiar' }
@@ -57,7 +60,7 @@
 		{
 			category: 'Backend',
 			items: [
-				{ name: 'Laravel', level: 'advanced' },
+				{ name: 'Laravel', level: 'expert' },
 				{ name: 'Node.js', level: 'advanced' },
 				{ name: 'PHP', level: 'advanced' },
 				{ name: 'REST APIs', level: 'advanced' },
@@ -92,6 +95,15 @@
 				{ name: 'Bash', level: 'advanced' },
 				{ name: 'Python', level: 'advanced' },
 				{ name: 'Go', level: 'beginner' }
+			]
+		},
+        {
+			category: 'Software Development',
+			items: [
+				{ name: 'Java', level: 'advanced' },
+				{ name: 'C', level: 'advanced' },
+				{ name: 'LuaScript', level: 'intermediate' },
+                { name: 'Rust', level: 'beginner' },
 			]
 		},
 	];
