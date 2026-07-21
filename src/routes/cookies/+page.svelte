@@ -20,6 +20,15 @@
 				as a result.
 			</p>
 
+			<div>
+				<h2 class="mb-2 text-lg font-semibold">Local storage</h2>
+				<p>
+					This site uses your browser's local storage to remember your light/dark theme
+					preference. This is stored only on your device, is never sent to a server, and
+					isn't used for tracking or analytics.
+				</p>
+			</div>
+
 			<p>
 				If that ever changes — for example, if analytics are added in the future — this page
 				will be updated to reflect what's in use and why.

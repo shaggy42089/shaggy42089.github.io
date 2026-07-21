@@ -102,7 +102,7 @@
 			items: [
 				{ name: 'Java', level: 'advanced' },
 				{ name: 'C', level: 'advanced' },
-				{ name: 'LuaScript', level: 'intermediate' },
+				{ name: 'Lua', level: 'intermediate' },
                 { name: 'Rust', level: 'beginner' },
 			]
 		},
@@ -131,7 +131,7 @@
 			company: 'Chapsvision Group',
 			period: '2024 - Present',
 			description:
-				'Here, at Chapsvision, i work full time for a client in the luxury clothing industry',
+				'Here, at Chapsvision, I work full time for a client in the luxury clothing industry',
 			technologies: ['NodeJS', 'VueJS', 'Laravel', 'MySQL'] as string[],
 			current: true
 		},
@@ -139,7 +139,7 @@
             title: 'Software Engineer Intern',
 			company: 'Capgemini Lille',
 			period: '2023 - 6 months',
-			description: 'During this Internship, i worked full time for the LVMH group. I coded NodeJS cartridges for salesforce',
+			description: 'During this Internship, I worked full time for the LVMH group. I coded NodeJS cartridges for salesforce',
 			technologies: ['Node.js', 'Salesforce'] as string[],
 			current: false
 		},
@@ -147,7 +147,7 @@
             title: 'Engineering Internship',
 			company: 'PTIT, Vietnam',
 			period: '2022 - 4 months',
-			description: 'During this Internship, i worked for the PTIT Institute in Vietnam. The goal of the internship was to create a vpn based alternative that allowed the upload of code to microprocessors from a distance using arduino-like boards.',
+			description: 'During this Internship, I worked for the PTIT Institute in Vietnam. The goal of the internship was to create a VPN-based alternative that allowed the upload of code to microprocessors from a distance using arduino-like boards.',
 			technologies: ['PHP', 'C', 'Arduino'] as string[],
 			current: false
 		},
@@ -155,8 +155,8 @@
             title: 'Internship at By the Way',
             company: 'By the Way',
             period: '2021 - 2 months',
-            description: "During this internship, I created an alternative to limesurvey or google forms for the company to make customizable satisfaction surveys for their clients. I also learned about GDPR compliance.",
-            technologies: ['VueJS', 'PHP', 'SQL Server', '3IS'] as string[],
+            description: "During this internship, I created an alternative to LimeSurvey or Google Forms for the company to make customizable satisfaction surveys for their clients. I also learned about GDPR compliance.",
+            technologies: ['VueJS', 'PHP', 'SQL Server', 'IIS'] as string[],
             current: false
         },
 	];
