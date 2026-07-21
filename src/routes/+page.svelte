@@ -272,10 +272,10 @@
 			{/each}
 		</div>
 
-		<div class="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+		<div class="mt-8 columns-1 gap-6 sm:columns-2 lg:columns-4">
 			{#each technologies as group, i (group.category)}
 				<div
-					class="card bg-base-100 border-base-300/60 hover:border-primary/40 border shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+					class="card bg-base-100 border-base-300/60 hover:border-primary/40 mb-6 break-inside-avoid border shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
 					use:reveal={{ delay: i * 90 }}
 				>
 					<div class="card-body">
@@ -391,10 +391,10 @@
 	<div class="mx-auto max-w-6xl scroll-mt-20 px-4 py-16 sm:px-8 md:py-24">
 		<SectionHeading kicker="04 · Background" title="Education" subtitle="My academic journey." />
 
-		<div class="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+		<div class="mt-12 columns-1 gap-6 md:columns-2 lg:columns-3">
 			{#each education as edu, i (edu.degree)}
 				<div
-					class="card bg-base-100 border-base-300/60 hover:border-primary/40 border shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+					class="card bg-base-100 border-base-300/60 hover:border-primary/40 mb-6 break-inside-avoid border shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
 					use:reveal={{ delay: i * 90 }}
 				>
 					<div class="card-body">
