@@ -358,10 +358,8 @@
 					{#if i !== 0}<hr class="bg-primary" />{/if}
 					<div class="timeline-middle">
 						<div
-							class="from-primary to-secondary text-primary-content flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br font-mono text-sm font-bold shadow-md"
-						>
-							{i + 1}
-						</div>
+							class="from-primary to-secondary h-4 w-4 rounded-full bg-gradient-to-br shadow-md"
+						></div>
 					</div>
 					<div
 						class="timeline-end timeline-box bg-base-100 border-base-300/60 hover:border-primary/40 mb-6 w-full border text-left transition-all duration-300 hover:-translate-y-1 hover:shadow-lg md:w-auto"
