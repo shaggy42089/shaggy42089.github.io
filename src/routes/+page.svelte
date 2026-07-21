@@ -1,39 +1,23 @@
 <script lang="ts">
+	import SectionHeading from '$lib/components/SectionHeading.svelte';
+	import { reveal } from '$lib/reveal';
+
 	// --- Edit the data below to update the site content ---
+	// Sections render in this order: Technologies, Languages, Career, Education, Skills, Contact.
 
 	const hero = {
 		name: 'Thibault',
 		title: 'Full-Stack Developer',
 		tagline:
-			'Lorem ipsum dolor sit amet, consectetur adipiscing elit. I build clean, reliable web applications and enjoy turning ideas into working products.'
+			'I build clean and reliable applications, fast.'
 	};
-
-	const skills = [
-		'Problem Solving',
-		'Team Collaboration',
-		'Agile / Scrum',
-		'Communication',
-		'Mentoring',
-		'Adaptability',
-		'Time Management',
-		'Public Speaking'
-	];
-
-	const hobbies = [
-		{ name: 'Photography', emoji: '📷' },
-		{ name: 'Hiking', emoji: '🥾' },
-		{ name: 'Chess', emoji: '♟️' },
-		{ name: 'Gaming', emoji: '🎮' },
-		{ name: 'Reading', emoji: '📚' },
-		{ name: 'Cooking', emoji: '🍳' }
-	];
 
 	type Level = 'advanced' | 'intermediate' | 'familiar';
 
-	const levelBadge: Record<Level, string> = {
-		advanced: 'badge-primary',
-		intermediate: 'badge-secondary',
-		familiar: 'badge-outline'
+	const levelDot: Record<Level, string> = {
+		advanced: 'bg-primary',
+		intermediate: 'bg-secondary',
+		familiar: 'bg-base-content/40'
 	};
 
 	const levelLabel: Record<Level, string> = {
@@ -87,34 +71,14 @@
 	];
 
 	const trips = [
-		{ flag: '🇯🇵', place: 'Tokyo, Japan', year: '2024' },
-		{ flag: '🇵🇹', place: 'Lisbon, Portugal', year: '2023' },
-		{ flag: '🇮🇸', place: 'Reykjavik, Iceland', year: '2023' },
-		{ flag: '🇺🇸', place: 'New York, USA', year: '2022' },
-		{ flag: '🇮🇹', place: 'Rome, Italy', year: '2021' }
-	];
-
-	const education = [
-		{
-			degree: "Master's Degree in Software Engineering",
-			school: 'Placeholder University',
-			period: '2022 - 2024',
-			description:
-				'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Specialized in web architecture and distributed systems.'
-		},
-		{
-			degree: "Bachelor's Degree in Computer Science",
-			school: 'Placeholder Institute of Technology',
-			period: '2019 - 2022',
-			description:
-				'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Focused on algorithms, databases and software design.'
-		},
-		{
-			degree: 'High School Diploma, Science Track',
-			school: 'Placeholder High School',
-			period: '2016 - 2019',
-			description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod.'
-		}
+        { flag: '🇮🇪', place: 'Ireland', year: '2025', duration: '10 days' },
+        { flag: '🇺🇸', place: 'Miami, USA', year: '2025', duration: '1 week' },
+        { flag: '🇻🇳', place: 'Vietnam', year: '2022', duration: '2 months' },
+		{ flag: '🇺🇸', place: 'California, USA', year: '2017', duration: '1 month' },
+		{ flag: '🇨🇦', place: 'Québec, Canada', year: '2016', duration: '1 month' },
+		{ flag: '🇳🇱', place: 'Amsterdam, NL', year: '2015', duration: '1 week' },
+		{ flag: '🇮🇹', place: 'Rome, Italy', year: '2013', duration: '5 days' },
+		{ flag: '🇬🇧', place: 'London, UK', year: '2013', duration: '1 week' }
 	];
 
 	const career = [
@@ -142,80 +106,124 @@
 			current: false
 		}
 	];
+
+	const education = [
+		{
+			degree: "Master's Degree in Software Engineering",
+			school: 'Placeholder University',
+			period: '2022 - 2024',
+			description:
+				'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Specialized in web architecture and distributed systems.'
+		},
+		{
+			degree: "Bachelor's Degree in Computer Science",
+			school: 'Placeholder Institute of Technology',
+			period: '2019 - 2022',
+			description:
+				'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Focused on algorithms, databases and software design.'
+		},
+		{
+			degree: 'High School Diploma, Science Track',
+			school: 'Placeholder High School',
+			period: '2016 - 2019',
+			description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod.'
+		}
+	];
+
+	const skills = [
+		'Problem Solving',
+		'Team Collaboration',
+		'Agile / Scrum',
+		'Communication',
+		'Mentoring',
+		'Adaptability',
+		'Time Management',
+		'Public Speaking'
+	];
+
+	const hobbies = [
+		{ name: 'Photography', emoji: '📷' },
+		{ name: 'Hiking', emoji: '🥾' },
+		{ name: 'Chess', emoji: '♟️' },
+		{ name: 'Gaming', emoji: '🎮' },
+		{ name: 'Reading', emoji: '📚' },
+		{ name: 'Cooking', emoji: '🍳' }
+	];
 </script>
 
-<section id="hero" class="hero min-h-[70vh] w-full bg-base-100">
-	<div class="hero-content px-4 text-center">
-		<div class="max-w-2xl">
-			<h1 class="text-4xl font-bold sm:text-5xl md:text-6xl">
-				Hi, I'm {hero.name}
+<section id="hero" class="hero relative min-h-[calc(100dvh-4rem)] w-full overflow-hidden">
+	<div
+		class="bg-primary/25 pointer-events-none absolute -top-24 -left-24 h-72 w-72 rounded-full blur-3xl"
+	></div>
+	<div
+		class="bg-secondary/20 pointer-events-none absolute -right-24 -bottom-24 h-80 w-80 rounded-full blur-3xl"
+	></div>
+
+	<div class="hero-content relative px-4 text-center">
+		<div class="max-w-2xl" use:reveal>
+			<div class="badge badge-outline border-primary/40 gap-2 px-4 py-3">
+				<span class="bg-success relative inline-flex h-2 w-2 rounded-full">
+					<span class="bg-success absolute inline-flex h-2 w-2 animate-ping rounded-full opacity-75"
+					></span>
+				</span>
+				Available for opportunities
+			</div>
+
+			<h1 class="mt-6 text-4xl font-bold sm:text-5xl md:text-6xl">
+				Hi, I'm
+				<span
+					class="from-primary via-secondary to-accent bg-gradient-to-r bg-clip-text text-transparent"
+					>{hero.name}</span
+				>
 			</h1>
-			<p class="text-primary mt-2 text-xl font-semibold sm:text-2xl">{hero.title}</p>
+			<p class="text-primary mt-3 font-mono text-lg sm:text-xl">
+				<span class="opacity-50">&gt;</span>
+				{hero.title}
+			</p>
 			<p class="py-6 opacity-80">{hero.tagline}</p>
 			<div class="flex flex-col justify-center gap-3 sm:flex-row">
-				<a href="#contact" class="btn btn-primary">Get in touch</a>
+				<a
+					href="#contact"
+					class="btn btn-primary shadow-[0_8px_30px_-8px_var(--color-primary)] hover:shadow-[0_8px_36px_-4px_var(--color-primary)]"
+					>Get in touch</a
+				>
 				<a href="#career" class="btn btn-outline">See my career</a>
 			</div>
 		</div>
 	</div>
 </section>
 
-<section id="skills" class="w-full bg-base-200">
+<section id="technologies" class="border-base-300/60 bg-base-200 w-full border-t">
 	<div class="mx-auto max-w-6xl scroll-mt-20 px-4 py-16 sm:px-8 md:py-24">
-		<h2 class="text-center text-3xl font-bold sm:text-4xl">Skills & Hobbies</h2>
-		<p class="mx-auto mt-2 max-w-2xl text-center opacity-70">
-			A quick look at what I bring to a team, and what I do outside of work.
-		</p>
-
-		<div class="mt-12 grid grid-cols-1 gap-10 md:grid-cols-2">
-			<div>
-				<h3 class="mb-4 text-xl font-semibold">Skills</h3>
-				<div class="flex flex-wrap gap-2">
-					{#each skills as skill (skill)}
-						<span class="badge badge-lg badge-primary badge-outline">{skill}</span>
-					{/each}
-				</div>
-			</div>
-
-			<div>
-				<h3 class="mb-4 text-xl font-semibold">Hobbies</h3>
-				<div class="grid grid-cols-2 gap-3 sm:grid-cols-3">
-					{#each hobbies as hobby (hobby.name)}
-						<div class="bg-base-100 flex items-center gap-2 rounded-box p-3 shadow-sm">
-							<span class="text-xl">{hobby.emoji}</span>
-							<span class="text-sm">{hobby.name}</span>
-						</div>
-					{/each}
-				</div>
-			</div>
-		</div>
-	</div>
-</section>
-
-<section id="technologies" class="w-full bg-base-100">
-	<div class="mx-auto max-w-6xl scroll-mt-20 px-4 py-16 sm:px-8 md:py-24">
-		<h2 class="text-center text-3xl font-bold sm:text-4xl">Technologies</h2>
-		<p class="mx-auto mt-2 max-w-2xl text-center opacity-70">
-			Technologies I've worked with, grouped by area and skill level.
-		</p>
+		<SectionHeading
+			kicker="01 · Toolbox"
+			title="Technologies"
+			subtitle="Technologies I've worked with, grouped by area and skill level."
+		/>
 
 		<div class="mt-6 flex flex-wrap justify-center gap-4 text-sm">
 			{#each Object.entries(levelLabel) as [level, label] (level)}
 				<div class="flex items-center gap-2">
-					<span class="badge {levelBadge[level as Level]} badge-sm"></span>
+					<span class="h-2 w-2 rounded-full {levelDot[level as Level]}"></span>
 					<span class="opacity-70">{label}</span>
 				</div>
 			{/each}
 		</div>
 
 		<div class="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-			{#each technologies as group (group.category)}
-				<div class="card bg-base-200 shadow-sm">
+			{#each technologies as group, i (group.category)}
+				<div
+					class="card bg-base-100 border-base-300/60 hover:border-primary/40 border shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+					use:reveal={{ delay: i * 90 }}
+				>
 					<div class="card-body">
 						<h3 class="card-title text-base">{group.category}</h3>
-						<div class="flex flex-wrap gap-2">
+						<div class="flex flex-col gap-2">
 							{#each group.items as item (item.name)}
-								<span class="badge {levelBadge[item.level]}">{item.name}</span>
+								<span class="inline-flex items-center gap-2 text-sm">
+									<span class="h-1.5 w-1.5 shrink-0 rounded-full {levelDot[item.level]}"></span>
+									{item.name}
+								</span>
 							{/each}
 						</div>
 					</div>
@@ -225,15 +233,16 @@
 	</div>
 </section>
 
-<section id="languages" class="w-full bg-base-200">
+<section id="languages" class="border-base-300/60 w-full border-t">
 	<div class="mx-auto max-w-6xl scroll-mt-20 px-4 py-16 sm:px-8 md:py-24">
-		<h2 class="text-center text-3xl font-bold sm:text-4xl">Languages & Travel</h2>
-		<p class="mx-auto mt-2 max-w-2xl text-center opacity-70">
-			Languages I speak, and some of the places I've been lucky enough to visit.
-		</p>
+		<SectionHeading
+			kicker="02 · Beyond Code"
+			title="Languages & Travel"
+			subtitle="Languages I speak, and some of the places I've been lucky enough to visit."
+		/>
 
 		<div class="mt-12 grid grid-cols-1 gap-10 md:grid-cols-2">
-			<div>
+			<div use:reveal={{ delay: 80 }}>
 				<h3 class="mb-4 text-xl font-semibold">Languages</h3>
 				<div class="flex flex-col gap-5">
 					{#each languages as lang (lang.name)}
@@ -249,16 +258,22 @@
 				</div>
 			</div>
 
-			<div>
+			<div use:reveal={{ delay: 160 }}>
 				<h3 class="mb-4 text-xl font-semibold">Places I've Traveled</h3>
 				<div class="flex flex-col gap-2">
 					{#each trips as trip (trip.place)}
-						<div class="bg-base-100 flex items-center justify-between rounded-box p-3 shadow-sm">
+						<div
+							class="bg-base-100 border-base-300/60 hover:border-primary/40 flex flex-wrap items-center justify-between gap-x-3 gap-y-1 rounded-box border p-3 transition-colors"
+						>
 							<span class="flex items-center gap-2">
 								<span class="text-xl">{trip.flag}</span>
 								<span class="text-sm">{trip.place}</span>
 							</span>
-							<span class="text-sm opacity-60">{trip.year}</span>
+							<span class="flex items-center gap-2 font-mono text-sm opacity-60">
+								<span>{trip.duration}</span>
+								<span class="opacity-50">·</span>
+								<span>{trip.year}</span>
+							</span>
 						</div>
 					{/each}
 				</div>
@@ -267,50 +282,29 @@
 	</div>
 </section>
 
-<section id="education" class="w-full bg-base-100">
+<section id="career" class="border-base-300/60 bg-base-200 w-full border-t">
 	<div class="mx-auto max-w-6xl scroll-mt-20 px-4 py-16 sm:px-8 md:py-24">
-		<h2 class="text-center text-3xl font-bold sm:text-4xl">Education</h2>
-		<p class="mx-auto mt-2 max-w-2xl text-center opacity-70">My academic background.</p>
-
-		<div class="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-			{#each education as edu (edu.degree)}
-				<div class="card bg-base-200 shadow-sm">
-					<div class="card-body">
-						<span class="badge badge-primary badge-outline w-fit">{edu.period}</span>
-						<h3 class="card-title mt-2 text-lg">{edu.degree}</h3>
-						<p class="text-sm font-medium opacity-80">{edu.school}</p>
-						<p class="mt-2 text-sm opacity-70">{edu.description}</p>
-					</div>
-				</div>
-			{/each}
-		</div>
-	</div>
-</section>
-
-<section id="career" class="w-full bg-base-200">
-	<div class="mx-auto max-w-6xl scroll-mt-20 px-4 py-16 sm:px-8 md:py-24">
-		<h2 class="text-center text-3xl font-bold sm:text-4xl">Career</h2>
-		<p class="mx-auto mt-2 max-w-2xl text-center opacity-70">My professional journey so far.</p>
+		<SectionHeading
+			kicker="03 · Experience"
+			title="Career"
+			subtitle="My professional journey so far."
+		/>
 
 		<ul class="timeline timeline-vertical mt-12 timeline-compact">
 			{#each career as job, i (job.title + job.period)}
 				<li>
 					{#if i !== 0}<hr class="bg-primary" />{/if}
 					<div class="timeline-middle">
-						<svg
-							xmlns="http://www.w3.org/2000/svg"
-							viewBox="0 0 20 20"
-							fill="currentColor"
-							class="text-primary h-5 w-5"
+						<div
+							class="from-primary to-secondary text-primary-content flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br font-mono text-sm font-bold shadow-md"
 						>
-							<path
-								fill-rule="evenodd"
-								d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
-								clip-rule="evenodd"
-							/>
-						</svg>
+							{i + 1}
+						</div>
 					</div>
-					<div class="timeline-end timeline-box mb-6 w-full text-left md:w-auto">
+					<div
+						class="timeline-end timeline-box bg-base-100 border-base-300/60 hover:border-primary/40 mb-6 w-full border text-left transition-all duration-300 hover:-translate-y-1 hover:shadow-lg md:w-auto"
+						use:reveal={{ delay: i * 100 }}
+					>
 						<time class="font-mono text-sm italic opacity-70">{job.period}</time>
 						{#if job.current}<span class="badge badge-primary badge-sm ml-2">Current</span>{/if}
 						<div class="text-lg font-bold">{job.title}</div>
@@ -324,16 +318,82 @@
 	</div>
 </section>
 
-<section id="contact" class="w-full bg-base-100">
+<section id="education" class="border-base-300/60 w-full border-t">
+	<div class="mx-auto max-w-6xl scroll-mt-20 px-4 py-16 sm:px-8 md:py-24">
+		<SectionHeading kicker="04 · Background" title="Education" subtitle="My academic journey." />
+
+		<div class="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+			{#each education as edu, i (edu.degree)}
+				<div
+					class="card bg-base-100 border-base-300/60 hover:border-primary/40 border shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+					use:reveal={{ delay: i * 90 }}
+				>
+					<div class="card-body">
+						<span class="text-primary font-mono text-xs font-semibold tracking-wide">
+							{edu.period}
+						</span>
+						<h3 class="card-title mt-1 text-lg">{edu.degree}</h3>
+						<p class="text-sm font-medium opacity-80">{edu.school}</p>
+						<p class="mt-2 text-sm opacity-70">{edu.description}</p>
+					</div>
+				</div>
+			{/each}
+		</div>
+	</div>
+</section>
+
+<section id="skills" class="border-base-300/60 bg-base-200 w-full border-t">
+	<div class="mx-auto max-w-6xl scroll-mt-20 px-4 py-16 sm:px-8 md:py-24">
+		<SectionHeading
+			kicker="05 · About Me"
+			title="Skills & Hobbies"
+			subtitle="A quick look at what I bring to a team, and what I do outside of work."
+		/>
+
+		<div class="mt-12 grid grid-cols-1 gap-10 md:grid-cols-2">
+			<div use:reveal={{ delay: 80 }}>
+				<h3 class="mb-4 text-xl font-semibold">Skills</h3>
+				<div class="flex flex-wrap gap-2">
+					{#each skills as skill (skill)}
+						<span
+							class="border-base-300 bg-base-100 hover:border-primary/50 rounded-full border px-3 py-1.5 text-sm font-medium transition-colors"
+							>{skill}</span
+						>
+					{/each}
+				</div>
+			</div>
+
+			<div use:reveal={{ delay: 160 }}>
+				<h3 class="mb-4 text-xl font-semibold">Hobbies</h3>
+				<div class="grid grid-cols-2 gap-3 sm:grid-cols-3">
+					{#each hobbies as hobby (hobby.name)}
+						<div
+							class="bg-base-100 border-base-300/60 hover:border-primary/40 flex items-center gap-2 rounded-box border p-3 transition-colors"
+						>
+							<span class="text-xl">{hobby.emoji}</span>
+							<span class="text-sm">{hobby.name}</span>
+						</div>
+					{/each}
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="contact" class="border-base-300/60 w-full border-t">
 	<div
 		class="mx-auto flex max-w-6xl scroll-mt-20 flex-col items-center px-4 py-16 sm:px-8 md:py-24"
 	>
-		<h2 class="text-center text-3xl font-bold sm:text-4xl">Contact Me</h2>
-		<p class="mx-auto mt-2 max-w-2xl text-center opacity-70">
-			Have an opportunity in mind? Send me a message.
-		</p>
+		<SectionHeading
+			kicker="06 · Let's Talk"
+			title="Contact Me"
+			subtitle="Have an opportunity in mind? Send me a message."
+		/>
 
-		<div class="card bg-base-200 mt-10 w-full max-w-lg shadow-xl">
+		<div
+			class="card bg-base-100 border-base-300/60 mt-10 w-full max-w-lg border shadow-xl"
+			use:reveal
+		>
 			<div class="card-body items-stretch gap-4">
 				<label class="floating-label">
 					<input type="text" placeholder="Email" class="input input-md w-full" />
@@ -347,7 +407,10 @@
 					<textarea placeholder="Message" class="textarea w-full" rows="4"></textarea>
 					<span>Message</span>
 				</label>
-				<button class="btn btn-primary mt-4">Send</button>
+				<button
+					class="btn btn-primary mt-4 shadow-[0_8px_30px_-8px_var(--color-primary)] hover:shadow-[0_8px_36px_-4px_var(--color-primary)]"
+					>Send</button
+				>
 			</div>
 		</div>
 	</div>

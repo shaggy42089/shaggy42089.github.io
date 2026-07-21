@@ -42,3 +42,22 @@
   
 
   @theme { --default-font-family: "Montserrat", "sans-serif"; }
+
+/* Subtle dot-grid backdrop used behind the whole page */
+.bg-dot-grid {
+	background-image: radial-gradient(circle, oklch(100% 0 0 / 8%) 1px, transparent 1px);
+	background-size: 26px 26px;
+}
+
+/* Scroll-reveal: paired with the `reveal` action from $lib/reveal.ts */
+.reveal {
+	opacity: 0;
+	transform: translateY(20px);
+	transition:
+		opacity 0.6s ease,
+		transform 0.6s ease;
+}
+.reveal-visible {
+	opacity: 1;
+	transform: translateY(0);
+}
