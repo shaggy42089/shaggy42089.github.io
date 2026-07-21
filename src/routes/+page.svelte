@@ -12,56 +12,88 @@
 			'I build clean and reliable applications, fast.'
 	};
 
-	type Level = 'advanced' | 'intermediate' | 'familiar';
+	const linkedinUrl = 'https://www.linkedin.com/in/your-profile';
+
+	type Level = 'expert' | 'advanced' | 'intermediate' | 'familiar' | 'beginner';
 
 	const levelDot: Record<Level, string> = {
-		advanced: 'bg-primary',
-		intermediate: 'bg-secondary',
-		familiar: 'bg-base-content/40'
+		expert: 'bg-[oklch(85%_0.17_95)]',
+		advanced: 'bg-error',
+		intermediate: 'bg-primary',
+		familiar: 'bg-[oklch(65%_0.18_260)]',
+		beginner: 'bg-info'
 	};
 
 	const levelLabel: Record<Level, string> = {
+		expert: 'Expert',
 		advanced: 'Advanced',
 		intermediate: 'Intermediate',
-		familiar: 'Familiar'
+		familiar: 'Familiar',
+		beginner: 'Beginner'
+	};
+
+	const levelRank: Record<Level, number> = {
+		expert: 0,
+		advanced: 1,
+		intermediate: 2,
+		familiar: 3,
+		beginner: 4
 	};
 
 	const technologies: { category: string; items: { name: string; level: Level }[] }[] = [
 		{
 			category: 'Frontend',
 			items: [
-				{ name: 'Svelte / SvelteKit', level: 'advanced' },
+                { name: 'VueJS', level: 'expert' },
+                { name: 'Svelte / SvelteKit', level: 'advanced' },
 				{ name: 'TypeScript', level: 'advanced' },
-				{ name: 'Tailwind CSS', level: 'advanced' },
-				{ name: 'React', level: 'intermediate' }
+				{ name: 'Tailwind CSS', level: 'intermediate' },
+                { name: 'Daisy UI', level: 'intermediate' },
+                { name: 'Bootstrap', level: 'advanced' },
+				{ name: 'React', level: 'familiar' },
+				{ name: 'Angular', level: 'familiar' }
 			]
 		},
 		{
 			category: 'Backend',
 			items: [
+				{ name: 'Laravel', level: 'advanced' },
 				{ name: 'Node.js', level: 'advanced' },
-				{ name: 'PHP', level: 'intermediate' },
+				{ name: 'PHP', level: 'advanced' },
 				{ name: 'REST APIs', level: 'advanced' },
-				{ name: 'GraphQL', level: 'familiar' }
+				{ name: 'GraphQL', level: 'beginner' }
 			]
 		},
 		{
 			category: 'Databases',
 			items: [
 				{ name: 'PostgreSQL', level: 'advanced' },
-				{ name: 'MySQL', level: 'intermediate' },
-				{ name: 'MongoDB', level: 'familiar' }
+				{ name: 'MySQL', level: 'advanced' },
+				{ name: 'MongoDB', level: 'intermediate' },
+				{ name: 'Sequelize', level: 'intermediate' },
+				{ name: 'SQLite', level: 'advanced' },
+				{ name: 'SQL Server', level: 'intermediate' }
 			]
 		},
 		{
 			category: 'Tools & DevOps',
 			items: [
-				{ name: 'Git', level: 'advanced' },
-				{ name: 'Docker', level: 'intermediate' },
+				{ name: 'Git', level: 'expert' },
+				{ name: 'Docker', level: 'advanced' },
 				{ name: 'CI/CD', level: 'intermediate' },
-				{ name: 'Linux', level: 'intermediate' }
+				{ name: 'Kubernetes', level: 'intermediate' },
+				{ name: 'Jenkins', level: 'familiar' },
+				{ name: 'Linux', level: 'advanced' }
 			]
-		}
+		},
+        {
+			category: 'Scripting',
+			items: [
+				{ name: 'Bash', level: 'advanced' },
+				{ name: 'Python', level: 'advanced' },
+				{ name: 'Go', level: 'beginner' }
+			]
+		},
 	];
 
 	const languages = [
@@ -83,69 +115,87 @@
 
 	const career = [
 		{
-			title: 'Placeholder Job Title',
-			company: 'Placeholder Company',
+			title: 'Software Engineer',
+			company: 'Chapsvision Group',
 			period: '2024 - Present',
 			description:
-				'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Working on placeholder projects with a placeholder tech stack.',
+				'Here, at Chapsvision, i work full time for a client in the luxury clothing industry',
+			technologies: ['NodeJS', 'VueJS', 'Laravel', 'MySQL'] as string[],
 			current: true
 		},
 		{
-			title: 'Internship at By the Way',
-			company: 'By the Way',
-			period: '2023',
-			description:
-				"During this internship, I created a project from scratch to fit the company's needs for customized satisfaction surveys, automatic and GDPR compliant customer emailing.",
+            title: 'Software Engineer Intern',
+			company: 'Capgemini Lille',
+			period: '2023 - 6 months',
+			description: 'During this Internship, i worked full time for the LVMH group. I coded NodeJS cartridges for salesforce',
+			technologies: ['Node.js', 'Salesforce'] as string[],
 			current: false
 		},
-		{
-			title: 'Placeholder Earlier Role',
-			company: 'Placeholder Company',
-			period: '2022',
-			description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor.',
+        {
+            title: 'Engineering Internship',
+			company: 'PTIT, Vietnam',
+			period: '2022 - 4 months',
+			description: 'During this Internship, i worked for the PTIT Institute in Vietnam. The goal of the internship was to create a vpn based alternative that allowed the upload of code to microprocessors from a distance using arduino-like boards.',
+			technologies: ['PHP', 'C', 'Arduino'] as string[],
 			current: false
-		}
+		},
+        {
+            title: 'Internship at By the Way',
+            company: 'By the Way',
+            period: '2021 - 2 months',
+            description: "During this internship, I created an alternative to limesurvey or google forms for the company to make customizable satisfaction surveys for their clients. I also learned about GDPR compliance.",
+            technologies: ['VueJS', 'PHP', 'SQL Server', '3IS'] as string[],
+            current: false
+        },
 	];
 
 	const education = [
 		{
-			degree: "Master's Degree in Software Engineering",
-			school: 'Placeholder University',
-			period: '2022 - 2024',
+			degree: "Engineering master degree",
+			school: 'Polytech\'Lille',
+			period: '2021-2023',
 			description:
-				'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Specialized in web architecture and distributed systems.'
+				'A diploma that focuses on computer science and the understanding of how machines work. The areas of study include microelectronics, automatics, physics and mathematics'
 		},
 		{
-			degree: "Bachelor's Degree in Computer Science",
-			school: 'Placeholder Institute of Technology',
-			period: '2019 - 2022',
+			degree: "Associate Degree in Computer Science (French DUT)",
+			school: 'IUT of Fontainebleau',
+			period: '2019 - 2020',
 			description:
-				'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Focused on algorithms, databases and software design.'
+				'A diploma that really focuses on computer science and programming skills, including kernel programming, databases, web programming, software programming, testing, interface design, mobile app design, and global knowledge around programming.'
 		},
 		{
-			degree: 'High School Diploma, Science Track',
-			school: 'Placeholder High School',
-			period: '2016 - 2019',
-			description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod.'
+			degree: 'French Baccalauréat in science',
+			school: 'Lycée Etienne Bezout',
+			period: '2018',
+			description: 'The general diploma of french students. The Major I took is Computer science and engineering.'
 		}
 	];
 
 	const skills = [
 		'Problem Solving',
-		'Team Collaboration',
 		'Agile / Scrum',
+		'Team Collaboration',
 		'Communication',
 		'Mentoring',
 		'Adaptability',
-		'Time Management',
-		'Public Speaking'
+		'Time Management'
 	];
 
+	const contactEmail = 'pro.tmeynier@gmail.com';
+	let contactSubject = $state('');
+	let contactMessage = $state('');
+
+	function handleContactSubmit(e: SubmitEvent) {
+		e.preventDefault();
+		const params = new URLSearchParams({ subject: contactSubject, body: contactMessage });
+		window.location.href = `mailto:${contactEmail}?${params.toString()}`;
+	}
+
 	const hobbies = [
-		{ name: 'Photography', emoji: '📷' },
-		{ name: 'Hiking', emoji: '🥾' },
-		{ name: 'Chess', emoji: '♟️' },
+		{ name: 'Rock climbing', emoji: '🧗' },
 		{ name: 'Gaming', emoji: '🎮' },
+        { name: 'Modding', emoji: '🖥️' },
 		{ name: 'Reading', emoji: '📚' },
 		{ name: 'Cooking', emoji: '🍳' }
 	];
@@ -219,7 +269,7 @@
 					<div class="card-body">
 						<h3 class="card-title text-base">{group.category}</h3>
 						<div class="flex flex-col gap-2">
-							{#each group.items as item (item.name)}
+							{#each [...group.items].sort((a, b) => levelRank[a.level] - levelRank[b.level]) as item (item.name)}
 								<span class="inline-flex items-center gap-2 text-sm">
 									<span class="h-1.5 w-1.5 shrink-0 rounded-full {levelDot[item.level]}"></span>
 									{item.name}
@@ -310,6 +360,13 @@
 						<div class="text-lg font-bold">{job.title}</div>
 						<div class="text-sm font-medium opacity-80">{job.company}</div>
 						<p class="mt-2 text-sm opacity-70">{job.description}</p>
+						{#if job.technologies.length}
+							<div class="mt-3 flex flex-wrap gap-1.5">
+								{#each job.technologies as tech (tech)}
+									<span class="badge badge-outline badge-primary badge-sm">{tech}</span>
+								{/each}
+							</div>
+						{/if}
 					</div>
 					{#if i !== career.length - 1}<hr class="bg-primary" />{/if}
 				</li>
@@ -394,24 +451,37 @@
 			class="card bg-base-100 border-base-300/60 mt-10 w-full max-w-lg border shadow-xl"
 			use:reveal
 		>
-			<div class="card-body items-stretch gap-4">
+			<form class="card-body items-stretch gap-4" onsubmit={handleContactSubmit}>
 				<label class="floating-label">
-					<input type="text" placeholder="Email" class="input input-md w-full" />
-					<span>Email</span>
-				</label>
-				<label class="floating-label">
-					<input type="text" placeholder="Subject" class="input input-md w-full" />
+					<input
+						type="text"
+						placeholder="Subject"
+						class="input input-md w-full"
+						bind:value={contactSubject}
+						required
+					/>
 					<span>Subject</span>
 				</label>
 				<label class="floating-label">
-					<textarea placeholder="Message" class="textarea w-full" rows="4"></textarea>
+					<textarea
+						placeholder="Message"
+						class="textarea w-full"
+						rows="4"
+						bind:value={contactMessage}
+						required
+					></textarea>
 					<span>Message</span>
 				</label>
 				<button
+					type="submit"
 					class="btn btn-primary mt-4 shadow-[0_8px_30px_-8px_var(--color-primary)] hover:shadow-[0_8px_36px_-4px_var(--color-primary)]"
 					>Send</button
 				>
-			</div>
+			</form>
 		</div>
+
+		<p class="mt-6 text-sm opacity-70">
+			Prefer social media? <a href={linkedinUrl} target="_blank" rel="noopener noreferrer" class="link link-primary">Contact me on LinkedIn</a>.
+		</p>
 	</div>
 </section>
