@@ -1,0 +1,9 @@
+import{t as n,h as l,a as r}from"../chunks/Cnz06oUx.js";import"../chunks/lhnqqCqB.js";import{k as p,$ as d,l as s,n as m,m as o}from"../chunks/CErwtfbE.js";var c=n(`<section class="w-full"><div class="mx-auto max-w-3xl px-4 py-16 sm:px-8 md:py-24"><a href="/" class="link link-hover text-primary text-sm">&larr; Back to home</a> <h1 class="mt-6 text-3xl font-bold sm:text-4xl">Terms of Use</h1> <p class="mt-2 text-sm opacity-60"></p> <div class="mt-8 flex flex-col gap-6 text-sm leading-relaxed opacity-90 sm:text-base"><p>This website is a personal portfolio belonging to Thibault, presented for informational
+				purposes to showcase professional experience, skills, and projects. By browsing this
+				site, you agree to the terms below.</p> <div><h2 class="mb-2 text-lg font-semibold">Content</h2> <p>All content on this site — including text, project descriptions, and design — is
+					provided as-is and may be updated or removed at any time without notice. Reasonable
+					care is taken to keep information accurate, but no guarantee is made as to its
+					completeness or correctness.</p></div> <div><h2 class="mb-2 text-lg font-semibold">Intellectual property</h2> <p>Unless otherwise noted, the design and written content of this site belong to
+					Thibault. You're welcome to reference or link to this site, but please don't
+					reproduce it wholesale without permission.</p></div> <div><h2 class="mb-2 text-lg font-semibold">No warranty</h2> <p>This site is provided without warranties of any kind. Thibault isn't liable for any
+					damages arising from the use of, or inability to use, this site.</p></div> <div><h2 class="mb-2 text-lg font-semibold">Contact</h2> <p>Questions about these terms can be sent via the contact form on the homepage.</p></div></div></div></section>`);function x(i){var t=c();l(h=>{d.title="Terms of Use — Thibault"});var e=s(t),a=p(s(e),4);a.textContent="Last updated: July 21, 2026",m(2),o(e),o(t),r(i,t)}export{x as component};
